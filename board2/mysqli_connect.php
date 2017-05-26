@@ -6,13 +6,13 @@
 // Set the database access information as constants:
 DEFINE ('DB_USER', 'navyism');
 DEFINE ('DB_PASSWORD', 'a1234');
-DEFINE ('DB_HOST', 'HOSTNAME');
+//DEFINE ('DB_HOST', 'HOSTNAME');
 DEFINE ('DB_NAME', 'uptrans');
 
 // Make the connection:
 //$dbc = @mysqli_connect (DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$dbc = @mysqli_connect (DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$dbc = @mysqli_connect ($HOSTNAME, DB_USER, DB_PASSWORD, DB_NAME);
 
 // If no connection could be made, trigger an error:
 if (!$dbc) {
