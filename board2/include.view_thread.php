@@ -18,7 +18,7 @@ function  checkUserSelect() {
 //-->
 </script>
 
-<?php
+<?
 ##### 현재 조회하고 있는 글과 관련된 글 목록에 대한 결과레코드 세트를 얻는다.
 $db = mysqli_select_db($dbc,"uptrans");
 
@@ -170,7 +170,7 @@ echo "관련 게시물 : <b>" . $threaded_rows . "</b> (Total <b>" . $threaded_r
 </tr>
 </table>
 
-</form>
+</form>   
 
 <center>
 <form method="post" action="list.php?code=<?echo("$code")?>">
