@@ -7,7 +7,6 @@ include ('includes/header.html');
 include ('function.user.php');
 require ('includes/config.inc.php');
 
-
 require (MYSQL);
 
 
