@@ -20,11 +20,11 @@ function  checkUserSelect() {
 
 <?php
 ##### 현재 조회하고 있는 글과 관련된 글 목록에 대한 결과레코드 세트를 얻는다.
-$db = mysqli_select_db($conn,"uptrans");
+$db = mysqli_select_db($dbc,"uptrans");
 
 
 $query = "SELECT uid,fid,name,email,subject,comment,signdate,ref,thread FROM $code WHERE fid = $my_fid ORDER BY thread";
-$result = mysqli_query($conn, $query);
+$result = mysqli_query($dbc, $query);
 if (!$result) {
    error("QUERY_ERROR");
    exit;
