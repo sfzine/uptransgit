@@ -10,27 +10,27 @@ function  checkUserSelect() {
    }
    if(i == check_nums) {
       alert("먼저 읽고자 하는 게시물을 선택하여 주십시오");
-      return;   
+      return;
    } else {
       document.signform.submit();
-   }   
+   }
 }
 //-->
 </script>
 
-<?
+<?php
 ##### 현재 조회하고 있는 글과 관련된 글 목록에 대한 결과레코드 세트를 얻는다.
 $db = mysqli_select_db($conn,"uptrans");
 
 
-$query = "SELECT uid,fid,name,email,subject,comment,signdate,ref,thread FROM $code WHERE fid = $my_fid ORDER BY thread";  
+$query = "SELECT uid,fid,name,email,subject,comment,signdate,ref,thread FROM $code WHERE fid = $my_fid ORDER BY thread";
 $result = mysqli_query($conn, $query);
 if (!$result) {
    error("QUERY_ERROR");
    exit;
 }
 
-##### 관련 게시물의 총 개수를 구한다. 
+##### 관련 게시물의 총 개수를 구한다.
 $threaded_rows = mysqli_num_rows($result);
 
 if($threaded_rows > 0) {
@@ -44,13 +44,13 @@ if($threaded_rows > 0) {
 <table width="650" border="0" align="center" cellspacing="0" cellpadding="0">
 <tr>
    <td align="center">
-<? 
+<?
 echo "관련 게시물 : <b>" . $threaded_rows . "</b> (Total <b>" . $threaded_rows . "</b> Articles)";
 ?>
    </td>
 </tr>
 </table>
-		
+
 <table border="0" width="650" align="center" cellspacing="1" cellpadding="3">
 <tr>
    <td align="center" bgColor=<?echo("$LIST_TH_COLOR")?> width=50><font color="#ffffff">번   호</font></td>
@@ -66,7 +66,7 @@ echo "관련 게시물 : <b>" . $threaded_rows . "</b> (Total <b>" . $threaded_r
 
    while($threaded_row = mysqli_fetch_array($result,MYSQL_ASSOC)) {
 
-      ##### 각 게시물 레코드의 필드값을 변수에 저장한다.   
+      ##### 각 게시물 레코드의 필드값을 변수에 저장한다.
       $my_uid = $threaded_row['uid'];
       $my_fid = $threaded_row['fid'];
       $my_name = $threaded_row['name'];
@@ -76,28 +76,28 @@ echo "관련 게시물 : <b>" . $threaded_rows . "</b> (Total <b>" . $threaded_r
       $my_signdate = date("y-m-d",$threaded_row['signdate']);
       $my_ref = $threaded_row['ref'];
       $my_thread = $threaded_row['thread'];
-   
-      ##### 제목과 본문에 대하여 테이블에 저장할 때(post.php) addslashes() 함수로 escape시킨 문자열을 원래대로 되돌려 놓는다.   
+
+      ##### 제목과 본문에 대하여 테이블에 저장할 때(post.php) addslashes() 함수로 escape시킨 문자열을 원래대로 되돌려 놓는다.
       $my_subject = stripslashes($my_subject);
       $my_comment = stripslashes($my_comment);
 
       echo("<tr>");
-   
+
       ##### [컬럼 1 : 게시물의 번호를 출력한다.]
       echo("   <td bgColor=$LIST_TD_COLOR align=\"center\">$article_num</td>");
       echo("   <td bgColor=$LIST_TD_COLOR>");
 
       ##### 응답의 단계에 따라 출력할 제목의 문자열을 안쪽으로 indent를 시킨다.
       $spacer = strlen($my_thread)-1;
-   
+
       ##### 원글에 대한 답변글이 $reply_indent 값 이상이 되면 답변글의 출력 indent를 고정시킨다.
       if($spacer > $reply_indent) $spacer = $reply_indent;
       for($j = 0; $j < $spacer; $j++) {
          echo "&nbsp; ";
       }
-   
+
       ##### 게시물의 작성시간으로부터 게시물이 최근에 작성된 글인지를 판별, 그에 따라 다른 아이콘 이미지를 출력한다.
-      
+
 
 
 
@@ -119,7 +119,7 @@ echo "관련 게시물 : <b>" . $threaded_rows . "</b> (Total <b>" . $threaded_r
             }
          }
       }
-   
+
       ##### 원칙상 제목에는 HTML 태그를 허용하지 않는다.
       $my_subject = htmlspecialchars($my_subject);
 
@@ -141,17 +141,17 @@ echo "관련 게시물 : <b>" . $threaded_rows . "</b> (Total <b>" . $threaded_r
       } else {
          echo("<td bgColor=$LIST_TD_COLOR align=\"center\"><a href=\"mailto:$my_email\">$my_name</a></td>");
       }
-   
+
       ##### [컬럼 4 : 게시물이 작성된 날짜정보를 출력한다.]
       echo("<td bgColor=$LIST_TD_COLOR align=\"center\">$my_signdate</td>");
-   
+
       ##### [컬럼 5 : 게시물의 조회수를 출력한다.]
       echo("<td bgColor=$LIST_TD_COLOR align=\"center\">$my_ref</td>");
 
       ##### [컬럼 6 : 여러게시물을 보기 위해 필요한 체크박스를 출력한다.]
       echo("<td bgColor=$LIST_TD_COLOR align=\"center\"><input type=\"checkbox\" name=\"check[]\" value=\"$my_uid\"></td>");
-   
-      echo("</tr>");      
+
+      echo("</tr>");
 
       $article_num--;
    }

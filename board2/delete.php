@@ -1,8 +1,8 @@
-<?
-##### »ç¿ëÀÚ Á¤ÀÇ ÇÔ¼ö ÆÄÀÏÀ» °¡Á®¿Â´Ù.
+<?php
+##### ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 require_once("function.user.php");
 
-##### È¯°æ¼³Á¤ ÆÄÀÏÀ» ºÒ·¯¿Â´Ù. È¯°æ¼³Á¤ÆÄÀÏÀº "config.Å×ÀÌºí¸í.php"ÀÌ¾î¾ß ÇÑ´Ù.
+##### È¯ï¿½æ¼³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½. È¯ï¿½æ¼³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "config.ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½.php"ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 $cfg_file = "config." . $code . ".php";
 if(file_exists($cfg_file)) {
    require($cfg_file);
@@ -11,29 +11,29 @@ if(file_exists($cfg_file)) {
    exit;
 }
 
-##### ÀÛ¾÷´ë»ó µ¥ÀÌÅÍº£ÀÌ½º¸¦ ¼±ÅÃÇÑ´Ù.
+##### ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 $db = mysql_select_db($dbName);
 if(!$db) {
    error("FAILED_TO_SELECT_DB");
    exit;
 }
 
-##### »èÁ¦ÇÏ°íÀÚ ÇÏ´Â ±ÛÀÌ ´äº¯±ÛÀ» ÇÏ³ª¶óµµ ´Þ°í ÀÖÀ¸¸é »èÁ¦ÇÒ ¼ö ¾øµµ·Ï ÇÑ´Ù.
-if(!$allow_delete_thread) {   
+##### ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
+if(!$allow_delete_thread) {
    $query = "SELECT thread FROM $code WHERE fid = $fid AND length(thread) = length('$thread')+1 AND locate('$thread',thread) = 1 ORDER BY thread DESC LIMIT 1";
    $result = mysql_query($query);
    if(!$result) {
       error("QUERY_ERROR");
       exit;
    }
-   $rows = mysql_num_rows($result);         
-   if($rows) {        
+   $rows = mysql_num_rows($result);
+   if($rows) {
       error("NO_ACCESS_DELETE_THREAD");
       exit;
    }
 }
 
-##### °ü¸®ÀÚ·Î ÀÎÁõµÈ °æ¿ì ¸ðµç ±ÛÀ» »èÁ¦ÇÒ ¼ö ÀÖ´Ù.
+##### ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
 if($PHP_AUTH_USER) {
    $query = "DELETE FROM $code WHERE fid = $fid AND thread = '$thread'";
    $result = mysql_query($query);
@@ -42,10 +42,10 @@ if($PHP_AUTH_USER) {
       exit;
    }
    echo("<meta http-equiv='Refresh' content='0; URL=list.php?code=$code&page=$page&keyfield=$keyfield&key=$encoded_key'>");
-   
+
 } else {
 
-   ###### ÇØ´ç°Ô½Ã¹°ÀÇ ¾ÏÈ£°ªÀ» »Ì¾Æ³½´Ù.
+   ###### ï¿½Ø´ï¿½ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾Æ³ï¿½ï¿½ï¿½.
    $result = mysql_query("SELECT passwd FROM $code WHERE fid = $fid AND thread = '$thread'");
    if(!$result) {
       error("QUERY_ERROR");
@@ -53,25 +53,25 @@ if($PHP_AUTH_USER) {
    }
    $real_pass = mysql_result($result,0,0);
    mysql_free_result($result);
-   
-   ##### »ç¿ëÀÚ°¡ ºñ¹Ð¹øÈ£¶õ¿¡ ÀÔ·ÂÇÑ ¹®ÀÚ¿­À» crypt() ÇÔ¼ö·Î ¾ÏÈ£È­ÇÑ´Ù.
+
+   ##### ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ crypt() ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½È£È­ï¿½Ñ´ï¿½.
    $user_pass = crypt($passwd,$real_pass);
-   
-   ##### °Ô½Ã¹°ÀÇ ¾ÏÈ£¿Í »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ¾ÏÈ£°¡ °°À¸¸é °Ô½Ã¹°À» »èÁ¦ÇÑ´Ù.
-   if (!strcmp($real_pass,$user_pass)) {      
+
+   ##### ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+   if (!strcmp($real_pass,$user_pass)) {
       $query = "DELETE FROM $code WHERE fid = $fid AND thread = '$thread'";
       $result = mysql_query($query);
       if (!$result) {
          error("QUERY_ERROR");
          exit;
       }
-      
-      ##### ¸®½ºÆ® Ãâ·ÂÈ­¸éÀ¸·Î ÀÌµ¿ÇÑ´Ù.
+
+      ##### ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ñ´ï¿½.
       $encoded_key = urlencode($key);
-      echo("<meta http-equiv='Refresh' content='0; URL=list.php?code=$code&page=$page&keyfield=$keyfield&key=$encoded_key'>");   
+      echo("<meta http-equiv='Refresh' content='0; URL=list.php?code=$code&page=$page&keyfield=$keyfield&key=$encoded_key'>");
    } else {
       error("NO_ACCESS_DELETE");
       exit;
    }
-}   
+}
 ?>

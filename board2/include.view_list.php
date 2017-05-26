@@ -18,7 +18,7 @@ function  checkUserSelect() {
 //-->
 </script>
 
-<?
+<?php
 ##### 현재 게시판 테이블에 등록되어 있는 총 레코드의 개수를 구한다.
 (isset($_POST["key"]) ? $key=$_POST["key"] : $key="");
 

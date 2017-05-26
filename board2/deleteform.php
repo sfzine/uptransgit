@@ -1,8 +1,8 @@
-<?
-##### »ç¿ëÀÚ Á¤ÀÇ ÇÔ¼ö ÆÄÀÏÀ» °¡Á®¿Â´Ù.
+<?php
+##### ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 require_once("function.user.php");
 
-##### È¯°æ¼³Á¤ ÆÄÀÏÀ» ºÒ·¯¿Â´Ù. È¯°æ¼³Á¤ÆÄÀÏÀº "config.Å×ÀÌºí¸í.php"ÀÌ¾î¾ß ÇÑ´Ù.
+##### È¯ï¿½æ¼³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½. È¯ï¿½æ¼³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "config.ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½.php"ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 $cfg_file = "config." . $code . ".php";
 if(file_exists($cfg_file)) {
    require($cfg_file);
@@ -11,15 +11,15 @@ if(file_exists($cfg_file)) {
    exit;
 }
 
-##### HTML »ó´Ü ÆäÀÌÁö ÆÄÀÏÀ» ºÒ·¯¿Â´Ù.
+##### HTML ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½.
 require_once("include.header.php");
 ?>
 
 <script language="javascript">
 <!--
-function checkIt(form) {      
+function checkIt(form) {
    if(!form.passwd.value) {
-      alert('ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä!');
+      alert('ï¿½ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½!');
       form.passwd.focus();
       return;
    }
@@ -34,17 +34,17 @@ function focusIt() {
 <body bgColor=<?echo("$BG_COLOR")?> onLoad="focusIt()">
 
 <?
-##### ÆäÀÌÁö »ó´Ü¿¡ ¹æ¸í·Ï Å¸ÀÌÆ² ÀÌ¹ÌÁö¸¦ Ãâ·ÂÇÑ´Ù.
+##### ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 printTitleImage($code);
 
-##### ÀÛ¾÷´ë»ó µ¥ÀÌÅÍº£ÀÌ½º¸¦ ¼±ÅÃÇÑ´Ù.
+##### ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 $db = mysql_select_db($dbName);
 if(!$db) {
    error("FAILED_TO_SELECT_DB");
    exit;
 }
 
-##### »èÁ¦ÇÏ°íÀÚ ÇÏ´Â ±ÛÀÇ ³»¿ëÀ» °¡Á®¿Í °¢°¢ÀÇ º¯¼ö¿¡ ÀúÀåÇÑ´Ù.
+##### ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 $query = "SELECT fid,name,subject,email,homepage,thread FROM $code WHERE uid = $number";
 $result = mysql_query($query);
 if(!$result) {
@@ -61,10 +61,10 @@ $my_email = $row->email;
 $my_homepage = $row->homepage;
 $my_thread = $row->thread;
 
-##### Á¦¸ñ¿¡ ´ëÇÏ¿© Å×ÀÌºí¿¡ ÀúÀåÇÒ ¶§(post.php) addslashes() ÇÔ¼ö·Î escape½ÃÅ² ¹®ÀÚ¿­À» ¿ø·¡´ë·Î µÇµ¹·Á ³õ´Â´Ù.
+##### ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(post.php) addslashes() ï¿½Ô¼ï¿½ï¿½ï¿½ escapeï¿½ï¿½Å² ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 $my_subject = stripslashes($my_subject);
 
-##### °Ë»ö¹®ÀÚ¿­À» ÀÎÄÚµùÇÑ´Ù.
+##### ï¿½Ë»ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ï¿½Ñ´ï¿½.
 $encoded_key = urlencode($key);
 
 if(!$my_email) {
@@ -82,30 +82,30 @@ if(!$my_homepage) {
 
    <table width="600" border="0" cellspacing="1" cellpadding="5" align="center">
    <tr>
-      <td width="120" align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>ÀÌ ¸§</font></td>
+      <td width="120" align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>ï¿½ï¿½ ï¿½ï¿½</font></td>
       <td width="480" bgColor="<?echo("$FORM_VALUE_BG")?>"><font size=2><?echo ("$my_name")?></font></td>
    </tr>
    <tr>
-      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>Àü ÀÚ ¿ì Æí</font></td>
+      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½</font></td>
       <td bgColor="<?echo("$FORM_VALUE_BG")?>"><font size=2><?echo ("<a href=mailto:$my_email>$my_email</a>")?></font></td>
    </tr>
    <tr>
-      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>È¨ Æä ÀÌ Áö</font></td>
+      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>È¨ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½</font></td>
       <td bgColor="<?echo("$FORM_VALUE_BG")?>"><font size=2><?echo ("<a href=$my_homepage>$my_homepage</a>")?></font></td>
-   </tr>            
+   </tr>
    <tr>
-      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>Á¦ ¸ñ</font></td>
+      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>ï¿½ï¿½ ï¿½ï¿½</font></td>
       <td bgColor="<?echo("$FORM_VALUE_BG")?>"><font size=2><?echo ("$my_subject")?></font></td>
-   </tr>   
+   </tr>
    <tr>
-      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>ºñ ¹Ð ¹ø È£</font></td>
+      <td align="center" bgColor="<?echo("$FORM_ITEM_BG")?>"><font size=2>ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ È£</font></td>
       <td bgColor="<?echo("$FORM_VALUE_BG")?>"><input type="password" name="passwd" size="10" maxlength="10"></td>
    </tr>
    <tr>
       <td align="center" colspan="2" bgColor="<?echo("$BG_COLOR")?>">
       <font size=2>
-      <input type="button" value="±Û »è Á¦" onClick="checkIt(this.form)">
-      <input type="reset" value="Ãë   ¼Ò">
+      <input type="button" value="ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½" onClick="checkIt(this.form)">
+      <input type="reset" value="ï¿½ï¿½   ï¿½ï¿½">
       </font>
       </td>
    </tr>
