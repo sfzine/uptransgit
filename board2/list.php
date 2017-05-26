@@ -4,7 +4,7 @@ session_start();
 $page_title = ':: 게시판입니다 ! ::';
 include ('includes/header.html');
 
-require_once("function.user.php");
+include ('function.user.php');
 require ('includes/config.inc.php');
 
 

@@ -1,5 +1,5 @@
-<?
-##### 방명록 테이블명을 인자로 전달받아 해당하는 이미지를 출력한다. 
+<?php
+##### 방명록 테이블명을 인자로 전달받아 해당하는 이미지를 출력한다.
 function printTitleImage($code) {
    $title_image = $code . ".png";
    echo "<center><img src=\"" . $title_image . "\" border=0></center><p>";
@@ -12,15 +12,15 @@ function printAllowTagMsg($isAllowed) {
    } else {
       echo "(태그사용 <font color=red>불가</font>)";
    }
-}   
+}
 
 ##### 에러발생시 인자로 전달받은 에러 메시지를 팝업창에 띄워 출력한다.
 function popup_msg($msg) {
-   echo("<script language=\"javascript\"> 
+   echo("<script language=\"javascript\">
    <!--
    alert('$msg');
    history.back();
-   //-->   
+   //-->
    </script>");
 }
 
@@ -30,21 +30,21 @@ function error($errcode) {
       case ("NOT_FOUND_CONFIG_FILE") :
          popup_msg("현재 디렉토리에 참조할 환경설정 파일이 없습니다.");
          break;
-            
+
       case ("ACCESS_DENIED_DB_CONNECTION") :
          popup_msg("데이터베이스 연결에 실패하였습니다.\\n\\n연결하고자 하는 서버명과 사용자명, 비밀번호를 확인하시기 바랍니다.");
          break;
-            
+
       case ("FAILED_TO_SELECT_DB") :
          popup_msg("지정한 데이터베이스를 작업대상 데이터베이스로 할 수 없습니다.\\n\\n지정한 데이터베이스를 확인하시기 바랍니다.");
          break;
 
-      case ("QUERY_ERROR") :      
+      case ("QUERY_ERROR") :
          $err_no = mysql_errno();
-         $err_msg = mysql_error();         
+         $err_msg = mysql_error();
          $error_msg = "ERROR CODE " . $err_no . " : " . $err_msg;
-         $error_msg = addslashes($error_msg);         
-         popup_msg($error_msg);  
+         $error_msg = addslashes($error_msg);
+         popup_msg($error_msg);
          break;
 
       case ("NOT_ALLOWED_NAME") :
@@ -53,40 +53,40 @@ function error($errcode) {
 
       case ("NOT_ALLOWED_EMAIL") :
          popup_msg("입력하신 전자우편주소의 형식이 올바르지 않습니다.\\n\\n다시 입력하여 주십시오.");
-         break;        
-         
+         break;
+
       case ("NOT_ALLOWED_HOMEPAGE") :
          popup_msg("입력하신 홈페이지 주소의 형식이 올바르지 않습니다.\\n\\n다시 입력하여 주십시오.");
-         break;                 
+         break;
 
       case ("NOT_ALLOWED_SUBJECT") :
          popup_msg("입력하신 제목은 허용되지 않는 값입니다.\\n\\n다시 입력하여 주십시오.");
          break;
-      
+
       case ("NOT_ALLOWED_PASSWD") :
          popup_msg("암호는 최소 4자이상의 영문자 또는 숫자여야 합니다.\\n\\n다시입력하여 주십시오.");
          break;
 
       case ("NOT_ALLOWED_COMMENT") :
          popup_msg("본문을 입력하지 않으셨습니다.\\n\\n다시 입력하여 주십시오.");
-         break; 
- 
+         break;
+
       case ("CANNOT_SEND_MAIL") :
          popup_msg("메일을 발송할 수 없습니다.\\n\\n발송메일의 형식을 확인하여 주십시오.");
-         break; 
- 
-      case ("NO_ACCESS_MODIFY") :   
+         break;
+
+      case ("NO_ACCESS_MODIFY") :
          popup_msg("입력하신 암호와 일치하지 않으므로 수정할 수 없습니다. \\n\\n다시 입력하여 주십시오.");
          break;
 
-      case ("NO_ACCESS_DELETE") :   
+      case ("NO_ACCESS_DELETE") :
          popup_msg("입력하신 암호와 일치하지 않으므로 삭제할 수 없습니다. \\n\\n다시 입력하여 주십시오.");
          break;
 
-      case ("NO_ACCESS_DELETE_THREAD") :   
+      case ("NO_ACCESS_DELETE_THREAD") :
          popup_msg("답변이 있는 글은 삭제하실 수 없습니다. \\n\\n답변글을 모두 삭제하신 후 삭제하십시오.");
          break;
-                           
+
       default :
    }
 }
@@ -98,7 +98,7 @@ function authenticate() {
 
    echo("
 	<html>
-   
+
 	<body>
        	<script language=\"javascript\">
 	<!--
