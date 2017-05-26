@@ -21,7 +21,7 @@ define('EMAIL', 'admin@daum.net');
 define ('BASE_URL', 'http://uptrans-upproject.1d35.starter-us-east-1.openshiftapps.com');
 
 // Location of the MySQL connection script:
-define ('MYSQL', './mysqli_connect.php');
+define ('MYSQL', 'mysqli_connect.php');
 
 // Adjust the time zone for PHP 5.1 and greater:
 date_default_timezone_set ('US/Eastern');
