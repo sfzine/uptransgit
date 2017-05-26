@@ -18,7 +18,7 @@ define('LIVE', FALSE);
 define('EMAIL', 'admin@daum.net');
 
 // Site URL (base for all redirections):
-define ('BASE_URL', 'http://localhost/');
+define ('BASE_URL', 'http://uptrans-upproject.1d35.starter-us-east-1.openshiftapps.com');
 
 // Location of the MySQL connection script:
 define ('MYSQL', '../mysqli_connect.php');
