@@ -1,0 +1,60 @@
+<?
+if(!isset($page_title)) {
+	$page_title = 'Welcome to my Home !';
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Welcome my homepage !</title>
+	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div id="header">
+		<h1>Your Website</h1>
+		<h2>this is a php project home, so Have furn here !</h2>
+	</div>
+	<div id="navigation">
+		<ul>
+			<li><a href="index.php">Home Page</a></li>
+			<li><a href="list.php?code=board2">forum</a></li>
+			<li><a href="project.php">Project</a></li>
+			<li><a href="info.php">info</a></li>
+			<li><a href="some.php">Some ideas</a></li>
+			<li><?php // Create a login/logout link:
+
+// admin 기능 구현 방법.... user_level 에 숫자 조정...
+//$_SESSION['user_id'] = 1;
+//$_SESSION['user_level'] = 2;
+
+if (isset($_SESSION['user_id'])) {
+	echo '<a href="logout.php">Logout</a><br />
+	<a href="change_password.php" title="Change Your Password">Change
+		 Password</a><br />';
+
+		 // 관리자 사용권한 설정할것....
+		 if (isset($_SESSION['user_level']))
+		 {
+		 if ($_SESSION['user_level'] == 2)
+		 {
+
+			 echo '<a href="view_users.php" title="View All Users">View Users
+			 </a><br />
+			 <a href="#">Some admin Page</a><br />';
+		 }
+	 }
+
+
+} else {
+	echo '<a href="register.php" title="Register for the Site">Register</a><br>
+	<a href="login.php" title="login">Login</a><br>
+	<a href="forgot_password.php" title="Password Retrieval">Retrieve Password</a>
+	<br />';
+}
+?></li>
+		</ul>
+	</div>
+	<div id="content"><!-- Start of the page-specific content. -->
+<!-- Script 12.10 - header.html -->
