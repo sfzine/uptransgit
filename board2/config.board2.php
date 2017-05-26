@@ -1,9 +1,9 @@
 <?php
 ##### 데이터베이스 연결설정 인자 (서버명, 사용자명, 비밀번호, 작업대상 데이터베이스명)
-$hostName = "localhost";
-$userName = "navyism";
-$userPassword = "1234";
-$dbName = "uptrans";
+//$hostName = "localhost";
+//$userName = "navyism";
+//$userPassword = "1234";
+//$dbName = "uptrans";
 
 ##### 데이터베이스에 연결한다.
 //$conn = @mysql_connect($hostName,$userName,$userPassword);
