@@ -21,7 +21,7 @@ define('EMAIL', 'admin@daum.net');
 define ('BASE_URL', 'http://localhost/');
 
 // Location of the MySQL connection script:
-define ('MYSQL', 'C:\\AutoSet9\public_html\mysqli_connect.php');
+define ('MYSQL', '../mysqli_connect.php');
 
 // Adjust the time zone for PHP 5.1 and greater:
 date_default_timezone_set ('US/Eastern');
