@@ -11,6 +11,8 @@ if(file_exists($cfg_file)) {
    exit;
 }
 
+
+
 ##### �۾����� �����ͺ��̽��� �����Ѵ�.
 $db = mysql_select_db($dbName);
 if(!$db) {
