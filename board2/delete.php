@@ -13,6 +13,8 @@ if(file_exists($cfg_file)) {
 
 
 
+
+
 ##### �۾����� �����ͺ��̽��� �����Ѵ�.
 $db = mysql_select_db($dbName);
 if(!$db) {
