@@ -4,6 +4,7 @@ $dbc = new mysqli('172.30.59.221','navyism','a1234', 'uptrans');
 
 
 
+
 if($dbc->connect_error) {
   die('Connect Error:('.$dbc->connect_errno.') '.$dbc->connect_error);
 
