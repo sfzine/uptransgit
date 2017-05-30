@@ -1,6 +1,6 @@
 <?php
 
-$dbc = new mysqli('172.30.59.221','navyism','a1234', 'uptrans');
+$dbc = new mysqli('172.30.21.214','navyism','a1234', 'uptrans');
 
 
 
