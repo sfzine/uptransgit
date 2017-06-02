@@ -3,6 +3,8 @@
 // This file also establishes a connection to MySQL
 // and selects the database.
 
+
+
 // Set the database access information as constants:
 DEFINE ('DB_USER', 'navyism');
 DEFINE ('DB_PASSWORD', 'a1234');
